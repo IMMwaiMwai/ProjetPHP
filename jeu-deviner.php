@@ -87,24 +87,27 @@ while($jeu == true){
                 echo $ligne."\n";
             }
         }
+        fclose($fichier);
 
 
     /* Condition si l'utilisateur choisi d'afficher tous les résultats enregistrés en fonction du pseudo */
 
     }elseif($choix==4){
         $pseudoDemande = readline("Saisir le pseudo : ");
+        $fichier = fopen($filename,"r");
         while(!feof($fichier)) {
             $ligne = fgets($fichier);
             if (str_contains($ligne, $pseudoDemande)) {
                 echo $ligne."\n";
             }
         }
+        fclose($fichier);
 
 
     /* Condition si l'utilisateur choisi de quitter le jeu */
 
     }elseif($choix==5){
-        echo "See you next time";
+        echo "See you next time"."\n";
         $jeu = false;
     }
 }
