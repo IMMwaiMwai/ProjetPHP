@@ -4,8 +4,8 @@
 $jeu = true; // Booléen permettant de faire tourner le jeu dans la boucle while principale
 $gagner = false; // Booléen permettant de savoir si le joueur a gagner
 $choix = 0; // Int permettant de savoir ce que le joueur fera comme choix (entre 1 et 5)
-$today = date("d/m/Y H:i:s"); // Reprise de la date du jour
-$filename = "resultats.txt";
+$jour = date("d/m/Y H:i:s"); // Reprise de la date du jour
+$fileName = "resultats.txt";
 $message = "";
 
 /* Programme */
@@ -51,7 +51,7 @@ while($jeu == true){
             }
         }
         if($nombreEssaisMax==0){
-            $message = "Désolé ".$pseudo." : vous avez atteint le nombre maximum de tentatives ! Le nombre était ".$nombreOrd;
+            $message = "Désolé ".$pseudo." : vous avez atteint le nombre maximum de tentatives ! Le nombre était ".$nombreOrd."\n";
             $message2 = "Perdu. Le nombre à deviné était ".$nombreOrd."\n";
         }elseif($nombreEssaisMax>10){
             $message = "Excellent ".$pseudo." : vous avez trouvé le nombre ".$nombreOrd." en ". $nombreEssais." tentatives !\n";
@@ -61,15 +61,15 @@ while($jeu == true){
             $message2 = "Bien joué ! Vous avez trouvé le nombre en ".$nombreEssais." essais.";
         }
         echo $message;
-        $fichier = fopen($filename,"a+");
-        fwrite($fichier,$today." - Pseudo : ".$pseudo." - Résultat: ".$message2."\n");
+        $fichier = fopen($fileName,"a+");
+        fwrite($fichier,$jour." - Pseudo : ".$pseudo." - Résultat: ".$message2."\n");
         fclose($fichier);
 
 
     /* Condition si l'utilisateur choisi d'afficher tous les résultats enregistrés */
 
     }elseif($choix==2){
-        $fichier = fopen($filename,"r");
+        $fichier = fopen($fileName,"r");
         while (!feof($fichier)){
             echo fgets($fichier)."\n";
         }
@@ -80,7 +80,7 @@ while($jeu == true){
 
     }elseif($choix==3){
         $date = (string) readline("Saisir la date sous le format jj/mm/aaaa : ");
-        $fichier = fopen($filename,"r");
+        $fichier = fopen($fileName,"r");
         while(!feof($fichier)){
             $ligne = fgets($fichier);
             if(str_contains($ligne,$date)){
@@ -94,7 +94,7 @@ while($jeu == true){
 
     }elseif($choix==4){
         $pseudoDemande = readline("Saisir le pseudo : ");
-        $fichier = fopen($filename,"r");
+        $fichier = fopen($fileName,"r");
         while(!feof($fichier)) {
             $ligne = fgets($fichier);
             if (str_contains($ligne, $pseudoDemande)) {
