@@ -55,10 +55,10 @@ while($jeu == true){
             $message2 = "Perdu. Le nombre à deviné était ".$nombreOrd."\n";
         }elseif($nombreEssaisMax>10){
             $message = "Excellent ".$pseudo." : vous avez trouvé le nombre ".$nombreOrd." en ". $nombreEssais." tentatives !\n";
-            $message2 = "Excellent! Vous avez trouvé le nombre en ".$nombreEssais." nombreessais.";
+            $message2 = "Excellent! Vous avez trouvé le nombre en ".$nombreEssais." essais.";
         }else{
             $message = "Bien joué ".$pseudo." : vous avez trouvé le nombre ".$nombreOrd." en ". $nombreEssais." tentatives !\n";
-            $message2 = "Bien joué ! Vous avez trouvé le nombre en ".$nombreEssais." nombreessais.";
+            $message2 = "Bien joué ! Vous avez trouvé le nombre en ".$nombreEssais." essais.";
         }
         echo $message;
         $fichier = fopen($filename,"a+");
