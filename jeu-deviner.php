@@ -2,7 +2,6 @@
 /* Variables */
 
 $jeu = true; // Booléen permettant de faire tourner le jeu dans la boucle while principale
-$gagner = false; // Booléen permettant de savoir si le joueur a gagner
 $choix = 0; // Int permettant de savoir ce que le joueur fera comme choix (entre 1 et 5)
 $jour = date("d/m/Y H:i:s"); // Reprise de la date du jour
 $fileName = "resultats.txt";
